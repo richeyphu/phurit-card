@@ -63,7 +63,8 @@
         transform-style: preserve-3d;
         will-change: transform;
       }
-      .card:hover .content {
+      .card:hover,
+      .card:active {
         transform: translateZ(12px);
       }
       /* .card::before {
@@ -85,6 +86,7 @@
       }
     </style>
 
+    <!-- CountAPI -->
     <script async src="https://api.countapi.xyz/hit/phurit.de/visits"></script>
   </head>
   <body>
