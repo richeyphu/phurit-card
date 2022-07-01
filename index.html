@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phurit.de</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background-color: #171923;
+        color: #edf2f7;
+        font-family: "Roboto", sans-serif;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .flex-center {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .title {
+        font-size: 6vw;
+        font-weight: 300;
+      }
+
+      .card {
+        max-width: 500px;
+        margin: auto;
+        height: auto;
+        padding: 5rem;
+        position: relative;
+        transition: transform 0.1s ease;
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+      .card:hover .content {
+        transform: translateZ(12px);
+      }
+      /* .card::before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      } */
+
+      @media (prefers-reduced-motion) {
+        .card {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-center">
+        <div class="card">
+          <h1 class="title">phurit<span style="color: #4fd1c5">.de</span></h1>
+        </div>
+      </div>
+    </div>
+    <script>
+      const card = document.querySelector(".card");
+      const motionMatchMedia = window.matchMedia("(prefers-reduced-motion)");
+      const THRESHOLD = 30;
+
+      function handleHover(e) {
+        const { clientX, clientY, currentTarget } = e;
+        const { clientWidth, clientHeight, offsetLeft, offsetTop } =
+          currentTarget;
+
+        const horizontal = (clientX - offsetLeft) / clientWidth;
+        const vertical = (clientY - offsetTop) / clientHeight;
+
+        const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
+        const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
+
+        card.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`;
+      }
+
+      function resetStyles(e) {
+        card.style.transform = `perspective(${e.currentTarget.clientWidth}px) rotateX(0deg) rotateY(0deg)`;
+      }
+
+      if (!motionMatchMedia.matches) {
+        card.addEventListener("mousemove", handleHover);
+        card.addEventListener("mouseleave", resetStyles);
+      }
+    </script>
+  </body>
+</html>
