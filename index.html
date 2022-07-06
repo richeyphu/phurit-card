@@ -18,6 +18,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <style>
       html,
@@ -148,6 +152,10 @@
       .b-green {
         background-color: rgba(16, 185, 129, 0.9);
       }
+      .cursor {
+        font-size: 5.6vmax;
+        font-weight: 400;
+      }
 
       @media (prefers-reduced-motion) {
         .card {
@@ -161,14 +169,21 @@
   <body>
     <main class="container">
       <div class="flex-center">
-        <div class="card glass">
+        <div class="card glass animate__animated animate__zoomInUp">
           <div class="window-bar">
             <div class="window-button b-red"></div>
             <div class="window-button b-yellow"></div>
             <div class="window-button b-green"></div>
           </div>
           <div class="window-content">
-            <h1 class="title">phurit<span style="color: #4fd1c5">.de</span></h1>
+            <h1 class="title">
+              phurit<span style="color: #4fd1c5"
+                >.de<span
+                  class="cursor animate__animated animate__flash animate__infinite animate__slower"
+                  >_</span
+                ></span
+              >
+            </h1>
             <p class="subtitle">Stay hungry, Stay Phulish.</p>
             <nav>
               <a href="https://github.com/richeyphu" target="_blank">
