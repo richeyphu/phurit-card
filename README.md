@@ -1,2 +1,2 @@
 # phurit.de
-My personal landing page...
+> Stay hungry, Stay Phulish.
