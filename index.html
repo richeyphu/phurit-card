@@ -222,9 +222,6 @@
         }
       }
     </style>
-
-    <!-- CountAPI -->
-    <script async src="https://api.countapi.xyz/hit/phurit.de/visits"></script>
   </head>
   <body>
     <main class="container">
@@ -427,6 +424,14 @@
         setTimeout(() => (modal.style.display = "none"), 800);
       };
       // QR Code Modal ends
+
+      // CountAPI
+      window.addEventListener("load", function (event) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://api.countapi.xyz/hit/phurit.de/visits";
+        document.head.appendChild(script);
+      });
     </script>
   </body>
 </html>
