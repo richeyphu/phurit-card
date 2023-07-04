@@ -401,6 +401,10 @@
         card.addEventListener("mousemove", handleHover);
         card.addEventListener("mouseleave", resetStyles);
       }
+
+      card.addEventListener("animationend", () => {
+        card.classList.remove("animate__animated", "animate__zoomInUp");
+      });
       // Main Card ends
 
       // QR Code Modal starts
